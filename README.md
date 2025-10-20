@@ -61,4 +61,10 @@ def load_openai_355m_gpt2(device: str, eval_mode: bool = False) -> OpenAICompati
 Do ensure that the relevant files exist in the directory.
 
 ## Regarding the weights
-When I figure out how to use ```git lfs``` then, they should be available.
+The following files must be placed in the [```bin/```](./bin/) folder of the project:
+
+- [GPT-2 Medium 355M](https://drive.google.com/file/d/1cEAK64mwuHSFKn1qmPELWh9ZW6QRN8_4/view?usp=sharing): OpenAI GPT-2 355M weights adapted to my OpenAI Compatible implementation.
+- [GPT-2 Medium 355M Instruction-tuned](https://drive.google.com/file/d/1d7yPMMFizoekOBKxaKhtXpGYVMDUmzPq/view?usp=sharing): GPT-2 355M finetuned on [instruction-data.json](./datasets/instruction-data.json) originally taken from [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch), only 1 epoch.
+- [GPT-2 Small 124M](https://drive.google.com/file/d/12kAEA91qWvoZ3rINaVEuFLkaQJKa-TWT/view?usp=sharing): OpenAI GPT-2 124M weights adapted to my OpenAI Compatible implementation.
+- [GPT-2 Small 163M Pre-trained from scratch](https://drive.google.com/file/d/1Vel0OaQixoXL391rj7mEMXH4gaIEz2oV/view?usp=sharing): GPT-2 163M pre-trained entirely from scratch on ```The Verdict by Edith Wharton``` taken from [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch). 163M since, no weights have been re-used (unlike OpenAI).
+- [GPT-2 Small 124M](https://drive.google.com/file/d/1aMEZl7kCAki1rLFPbTW3UxIY3iavj-xf/view?usp=sharing): OpenAI GPT-2 124M weights adapted to my OpenAI Compatible implementation which contains a two class classification head for spam/not spam classification.
