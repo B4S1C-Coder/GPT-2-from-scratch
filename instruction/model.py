@@ -5,6 +5,7 @@ from instruction.dataset import get_data_loaders, format_input
 import time
 import matplotlib.pyplot as plt
 from datetime import datetime
+import numpy as np
 
 def calc_loss_batch(input_batch, target_batch, model, device):
     input_batch, target_batch = input_batch.to(device), target_batch.to(device)
@@ -127,7 +128,7 @@ def main():
     optimizer = torch.optim.AdamW(model.parameters(), lr=0.00005, weight_decay=0.1)
     
     train_loader, val_loader, test_loader = get_data_loaders(device=device, tokenizer=tokenizer)
-    num_epochs = 1
+    num_epochs = 5
 
     starting_context = {
         "instruction": "Correct the misuse of 'their' in the sentence.",
@@ -147,18 +148,54 @@ def main():
     exec_time_mins = (end_time - start_time) / 60
     print(f"Training completed in {exec_time_mins} minutes.")
 
-    torch.save(model.state_dict(), "bin/gpt2_355m_it_custom.pth")
+    torch.save(model.state_dict(), "bin/gpt2_355m_it_custom_v2.pth")
     print("Weights saved")
 
-    plt.plot(train_losses, label="Training Loss")
-    plt.plot(val_losses, label="Validation Loss")
-    # plt.plot(tokens_seen, label="Tokens Seen")
 
-    plt.legend(loc='upper right')
+    plt.figure(figsize=(8, 5), dpi=150)
+    plt.style.use("seaborn-v0_8-darkgrid")
+
+    train_smooth = train_losses
+    val_smooth = val_losses
+
+    plt.plot(train_smooth, label="Training Loss", linewidth=2.2, color="#1f77b4")
+    plt.plot(val_smooth, label="Validation Loss", linewidth=2.2, color="#ff7f0e")
+
+    # Highlight the lowest validation loss
+    min_val_idx = int(np.argmin(val_losses))
+    plt.scatter(min_val_idx, val_losses[min_val_idx], color="#d62728", s=50, zorder=5)
+    plt.text(min_val_idx, val_losses[min_val_idx] + 0.02,
+            f"Lowest Val Loss: {val_losses[min_val_idx]:.4f}",
+            fontsize=9, color="#d62728", fontweight="bold")
+
+    # Labels and title
+    plt.title("GPT-2 355M Instruction Fine-Tuning — Training vs Validation Loss",
+            fontsize=13, fontweight='bold', pad=15)
+    plt.xlabel("Evaluation Steps", fontsize=11)
+    plt.ylabel("Loss", fontsize=11)
+
+    # Add subtle watermark / credit (optional)
+    plt.text(0.5, -0.15,
+            "Experiment by Saksham Mittal · Powered by PyTorch + GPT-2",
+            fontsize=8, color="gray", ha="center", transform=plt.gca().transAxes)
+
+    plt.legend(loc='upper right', fontsize=10)
+    plt.tight_layout()
+
     output_path = f"graphs/instruction_finetuning_result_{datetime.now().isoformat().replace(':', '-')}.png"
-    plt.savefig(output_path)
-
+    plt.savefig(output_path, bbox_inches='tight')
     print(f"Result graph saved to: {output_path}")
+
+
+    # plt.plot(train_losses, label="Training Loss")
+    # plt.plot(val_losses, label="Validation Loss")
+    # # plt.plot(tokens_seen, label="Tokens Seen")
+
+    # plt.legend(loc='upper right')
+    # output_path = f"graphs/instruction_finetuning_result_{datetime.now().isoformat().replace(':', '-')}.png"
+    # plt.savefig(output_path)
+
+    # print(f"Result graph saved to: {output_path}")
 
 if __name__ == "__main__":
     main()
