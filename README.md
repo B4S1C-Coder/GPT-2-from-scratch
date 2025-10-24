@@ -68,6 +68,7 @@ The following files must be placed in the [```bin/```](./bin/) folder of the pro
 - [GPT-2 Small 124M](https://drive.google.com/file/d/12kAEA91qWvoZ3rINaVEuFLkaQJKa-TWT/view?usp=sharing): OpenAI GPT-2 124M weights adapted to my OpenAI Compatible implementation.
 - [GPT-2 Small 163M Pre-trained from scratch](https://drive.google.com/file/d/1Vel0OaQixoXL391rj7mEMXH4gaIEz2oV/view?usp=sharing): GPT-2 163M pre-trained entirely from scratch on ```The Verdict by Edith Wharton``` taken from [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch). 163M since, no weights have been re-used (unlike OpenAI).
 - [GPT-2 Small 124M](https://drive.google.com/file/d/1aMEZl7kCAki1rLFPbTW3UxIY3iavj-xf/view?usp=sharing): OpenAI GPT-2 124M weights adapted to my OpenAI Compatible implementation which contains a two class classification head for spam/not spam classification.
+- [GPT-2 Medium 355M Reasoning](https://drive.google.com/file/d/1le9E6rpGLj0uIly-iILubBncS7ZWO5yQ/view?usp=sharing) - Fintuned on ```AM-DeepSeek-R1-Distilled-1.4M``` 1K samples, 3 epochs
 
 ## Regarding Datasets
 
