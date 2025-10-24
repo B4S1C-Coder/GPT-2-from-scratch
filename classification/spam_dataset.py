@@ -73,23 +73,23 @@ class SpamDataset(Dataset):
         return max_length
 
 def construct_split_files():
-    data_file_path = 'datasets/SMSSpamCollection.tsv'
+    data_file_path = 'datasets_/SMSSpamCollection.tsv'
     df = pd.read_csv(data_file_path, sep="\t", header=None, names=["Label", "Text"])
     balanced_df = create_balanced_dataset(df)
 
     train_df, val_df, test_df = random_split(balanced_df, 0.7, 0.1)
 
-    train_df.to_csv("datasets/spam_train.csv", index=False)
-    val_df.to_csv("datasets/spam_val.csv", index=False)
-    test_df.to_csv("datasets/spam_test.csv", index=False)
+    train_df.to_csv("datasets_/spam_train.csv", index=False)
+    val_df.to_csv("datasets_/spam_val.csv", index=False)
+    test_df.to_csv("datasets_/spam_test.csv", index=False)
 
     print("split .csv files saved")
 
 def get_data_loaders(device: str):
     tokenizer = tiktoken.get_encoding('gpt2')
-    train_dataset = SpamDataset("datasets/spam_train.csv", tokenizer)
-    val_dataset = SpamDataset("datasets/spam_val.csv", tokenizer, train_dataset.max_length)
-    test_dataset = SpamDataset("datasets/spam_test.csv", tokenizer, train_dataset.max_length)
+    train_dataset = SpamDataset("datasets_/spam_train.csv", tokenizer)
+    val_dataset = SpamDataset("datasets_/spam_val.csv", tokenizer, train_dataset.max_length)
+    test_dataset = SpamDataset("datasets_/spam_test.csv", tokenizer, train_dataset.max_length)
 
     num_workers, batch_size = 0, 8
 

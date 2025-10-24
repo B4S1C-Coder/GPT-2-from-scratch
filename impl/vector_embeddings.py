@@ -6,7 +6,7 @@ output_dims = 256
 
 token_embedding_layer = torch.nn.Embedding(vocab_size, output_dims)
 
-with open('datasets/the-verdict.txt', 'r', encoding='utf-8') as f:
+with open('datasets_/the-verdict.txt', 'r', encoding='utf-8') as f:
     raw_text = f.read()
 
 max_length = 4

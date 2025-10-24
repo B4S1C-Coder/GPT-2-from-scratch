@@ -20,7 +20,7 @@ def format_input(entry: dict) -> str:
     return instruction_text + input_text
 
 def split_dataset(
-    data_file_path: str="datasets/instruction-data.json"
+    data_file_path: str="datasets_/instruction-data.json"
 ) -> tuple[dict, dict, dict]:
 
     with open(data_file_path, 'r', encoding='utf-8') as file:

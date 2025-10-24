@@ -10,14 +10,14 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 if device != "cuda":
     raise RuntimeError("GPU not available.")
 
-# Temporarily override, GPT - 2 configs to deal with small datasets.
+# Temporarily override, GPT - 2 configs to deal with small datasets_.
 MODEL_CFG = get_currently_chosen_cfg()._replace(
     context_length=256
 )
 
 print(f"Using default device: {device}")
 
-with open('datasets/the-verdict.txt', 'r', encoding='utf-8') as f:
+with open('datasets_/the-verdict.txt', 'r', encoding='utf-8') as f:
     text_data = f.read()
 
 tokenizer = tiktoken.get_encoding('gpt2')

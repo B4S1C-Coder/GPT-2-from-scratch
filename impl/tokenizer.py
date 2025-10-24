@@ -29,7 +29,7 @@ class SimpleTokenizerV1:
         return text
 
 def main():
-    with open('datasets/the-verdict.txt', 'r', encoding="utf-8") as f:
+    with open('datasets_/the-verdict.txt', 'r', encoding="utf-8") as f:
         raw_text = f.read()
 
     print("Total characters in raw text:", len(raw_text))

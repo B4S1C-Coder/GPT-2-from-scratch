@@ -53,7 +53,7 @@ def create_dataloader_v1(
     return dataloader
 
 def main():
-    with open('datasets/the-verdict.txt', 'r', encoding='utf-8') as f:
+    with open('datasets_/the-verdict.txt', 'r', encoding='utf-8') as f:
         raw_text = f.read()
 
     dataloader = create_dataloader_v1(
@@ -72,7 +72,7 @@ def main():
     # 40 367 2885 1464 --> 1807
 
 def illustration():
-    with open('datasets/the-verdict.txt', 'r', encoding='utf-8') as f:
+    with open('datasets_/the-verdict.txt', 'r', encoding='utf-8') as f:
         raw_text = f.read()
 
     enc_text = tokenizer.encode(raw_text)

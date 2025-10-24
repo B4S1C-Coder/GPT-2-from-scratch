@@ -64,7 +64,21 @@ Do ensure that the relevant files exist in the directory.
 The following files must be placed in the [```bin/```](./bin/) folder of the project:
 
 - [GPT-2 Medium 355M](https://drive.google.com/file/d/1cEAK64mwuHSFKn1qmPELWh9ZW6QRN8_4/view?usp=sharing): OpenAI GPT-2 355M weights adapted to my OpenAI Compatible implementation.
-- [GPT-2 Medium 355M Instruction-tuned](https://drive.google.com/file/d/1d7yPMMFizoekOBKxaKhtXpGYVMDUmzPq/view?usp=sharing): GPT-2 355M finetuned on [instruction-data.json](./datasets/instruction-data.json) originally taken from [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch), only 1 epoch.
+- [GPT-2 Medium 355M Instruction-tuned](https://drive.google.com/file/d/1d7yPMMFizoekOBKxaKhtXpGYVMDUmzPq/view?usp=sharing): GPT-2 355M finetuned on [instruction-data.json](./datasets_/instruction-data.json) originally taken from [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch), only 1 epoch.
 - [GPT-2 Small 124M](https://drive.google.com/file/d/12kAEA91qWvoZ3rINaVEuFLkaQJKa-TWT/view?usp=sharing): OpenAI GPT-2 124M weights adapted to my OpenAI Compatible implementation.
 - [GPT-2 Small 163M Pre-trained from scratch](https://drive.google.com/file/d/1Vel0OaQixoXL391rj7mEMXH4gaIEz2oV/view?usp=sharing): GPT-2 163M pre-trained entirely from scratch on ```The Verdict by Edith Wharton``` taken from [rasbt/LLMs-from-scratch](https://github.com/rasbt/LLMs-from-scratch). 163M since, no weights have been re-used (unlike OpenAI).
 - [GPT-2 Small 124M](https://drive.google.com/file/d/1aMEZl7kCAki1rLFPbTW3UxIY3iavj-xf/view?usp=sharing): OpenAI GPT-2 124M weights adapted to my OpenAI Compatible implementation which contains a two class classification head for spam/not spam classification.
+
+## Regarding Datasets
+
+### Acknowledgment
+
+This project includes a sample JSONL file from the **1.4 Million Open-Source Distilled Reasoning Dataset** by Zhao et al. (2025).
+
+If you use or reference this dataset, please cite:
+
+> Zhao, H., Wang, H., Peng, Y., Zhao, S., Tian, X., Chen, S., Ji, Y., & Li, X. (2025).  
+> *1.4 Million Open-Source Distilled Reasoning Dataset to Empower Large Language Model Training.*  
+> [arXiv:2503.19633](https://arxiv.org/abs/2503.19633)
+
+This dataset has been taken from [HuggingFace](https://huggingface.co/datasets/a-m-team/AM-DeepSeek-R1-Distilled-1.4M).

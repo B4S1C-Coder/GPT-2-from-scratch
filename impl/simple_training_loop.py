@@ -82,7 +82,7 @@ def train_model_simple(
     return train_losses, val_losses, track_tokens_seen
 
 def create_data_loaders(
-    model_cfg: GPTModelCfg, tokenizer: tiktoken.Encoding, file_path: str="datasets/the-verdict.txt"
+    model_cfg: GPTModelCfg, tokenizer: tiktoken.Encoding, file_path: str="datasets_/the-verdict.txt"
 ) -> tuple[torch.utils.data.DataLoader, torch.utils.data.DataLoader]:
 
     with open(file_path, 'r', encoding='utf-8') as f:
